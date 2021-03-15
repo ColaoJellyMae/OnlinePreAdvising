@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- BOOTSTRAP -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+		<link rel="stylesheet" href="../bootstrap/bootstrap.min.css" />
+		<!-- fontawesome -->
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+		<!-- local css -->
+		<link rel="stylesheet" href="../css/request.css" />
+		<title>Request Account</title>
+	</head>
+
+	<body>
+		<!-- CONTAINER NO MARGIN -->
+		<div class="bg overflow-hidden">
+			<!-- CONTAINER WITH MARGIN -->
+			<div class="container mt-5">
+				<!-- PARENT -->
+				<div class="row">
+					<!--CHILD LEFT -->
+					<div class="col-6" id="left-side">
+						<form id="staff-request-form" class="p-3">
+							<!-- HEADING -->
+							<div class="title mb-5">
+								<h3 class="mb-4">
+									Staff Request Form
+									<span>
+										<a class="role" href="student-request.html"><i class="fas fa-user-graduate"></i></a>
+										<a class="role" id="active" href="#"><i class="fas fa-user-tie"></i></a>
+									</span>
+								</h3>
+							</div>
+							<!-- HEADING END -->
+
+							<!-- INPUT FIELDS -->
+							<div class="row mb-3">
+								<label for="student-id" class="col-sm-4 col-form-label">Staff ID</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="staff-id" />
+								</div>
+							</div>
+							<div class="row mb-3">
+								<label for="first-name" class="col-sm-4 col-form-label">First Name</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="first-name" />
+								</div>
+							</div>
+							<div class="row mb-3">
+								<label for="last-name" class="col-sm-4 col-form-label">Last Name</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="last-name" />
+								</div>
+							</div>
+							<div class="row mb-3">
+								<label for="email" class="col-sm-4 col-form-label">Email</label>
+								<div class="col-sm-8">
+									<input type="email" placeholder="@wmsu.edu.ph" class="form-control" id="email" />
+								</div>
+							</div>
+							<div class="row mb-3">
+								<label for="pass" class="col-sm-4 col-form-label">Password</label>
+								<div class="col-sm-8">
+									<input type="password" placeholder="" class="form-control" id="pass" />
+								</div>
+							</div>
+							<div class="row mb-3">
+								<label for="department" class="col-sm-4 col-form-label">Department</label>
+								<div class="col-sm-8">
+									<input class="form-control" list="departments" id="department" />
+									<datalist id="departments">
+										<option value="College of Agriculture"></option>
+										<option value="College of Achitecture"></option>
+										<option value="College of Asian and Islamic Studies"></option>
+										<option value="College of Criminal Justice Education"></option>
+										<option value="College of Engineering"></option>
+										<option value="College of Forestry and Environmental Studies"></option>
+										<option value="College of Home Economics"></option>
+										<option value="College of Law"></option>
+										<option value="College of Liberal Arts"></option>
+										<option value="College of Nursing"></option>
+										<option value="College of Public Administration and Development Studies"></option>
+										<option value="College of Sports Science and Physical Education"></option>
+										<option value="College of Science and Mathematics"></option>
+										<option value="College of Social Work and Community Development"></option>
+										<option value="College of Teacher Education"></option>
+										<option value="Institute of Computer Studies"></option>
+									</datalist>
+								</div>
+							</div>
+							<div class="row mb-5">
+								<label for="course" class="col-sm-4 col-form-label">Assigned to</label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control" id="course" placeholder="Course" />
+								
+								</div>
+								<div class="col-sm-4">
+									<input class="form-control" list="year-levels" id="year" placeholder="Year Level" />
+									<datalist id="year-levels">
+										<option value="1"></option>
+										<option value="2"></option>
+										<option value="3"></option>
+										<option value="4"></option>
+									</datalist>
+								</div>
+							</div>
+							<!-- INPUT FIELDS END -->
+
+							<!-- ACTION BUTTONS -->
+							<div class="buttons">
+								<a href="universal-signin.html" class="btn btn-secondary" id="back-btn">Back</a>
+								<button type="submit" class="btn btn-danger" id="submit-btn">Submit</button>
+							</div>
+							<!-- ACTION BUTTONS END -->
+						</form>
+					</div>
+					<!-- CHILD LEFT END -->
+
+					<!-- CHILD RIGHT -->
+					<div class="col-6" id="right-side">
+						<div class="bg-circle"></div>
+						<div class="containr">
+							<img src="../images/request.svg" alt="" />
+						</div>
+					</div>
+					<!-- CHILE RIGHT END -->
+				</div>
+				<!-- PARENT END -->
+			</div>
+			<!-- MARGIN WITH CONTAINER END -->
+		</div>
+		<!-- CONTAINER NO MARGIN END -->
+
+		<!-- ONLINE BOOTSTRAP JS -->
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+		<!-- OFFLINE BOOTSTRAP JS -->
+		<script src="../bootstrap/bootstrap.min.js"></script>
+	</body>
+</html>

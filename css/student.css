@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+* {
+	font-family: poppins;
+}
+a{
+    color: #5DBD8E;
+}
+a:hover{
+    color: #2c8353
+}
+#myNav {
+	background-color: #5DBD8E;
+}
+
+#icsHeader {
+	padding: 0px;
+}
+ul {
+	margin-left: auto;
+	font-size: 20px;
+}
+.container img{
+    border: solid 5px #5DBD8E;
+    border-radius: 50%;
+    max-width: 200px;
+}
+#container-progress{
+    position: relative;
+    text-align: center;
+}
+.dot {
+    background-color: #E9ECEF;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    position: inherit;
+    z-index: 5;
+}
+.start{
+    left: -42%;
+    top: 20px;
+}
+.center{
+    left: 0;
+    top: 19px;
+}
+.end{
+    left: 42%;
+    top: 19px;
+}
+#active{
+    background-color: #5DBD8E;
+}
+#progressbar{
+    width: 90%;
+}
+
+@keyframes slide1{
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide2{
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+#progress1{
+    background-color: #5DBD8E;
+    animation: 1s ease-in-out 0s 1 slide1;
+}
+
+#progress2{
+    background-color: #5DBD8E;
+    animation: 1s ease-in-out 0s 1 slide2;
+}
+#progress-no-anim{
+    background-color: #5DBD8E;
+}
+#feedback{
+    border-radius: 10px;
+}
+
+#spinner{
+    position: inherit;
+    display: inline-block;
+    color: #97D5B7;
+    left: 0px;
+    top: -19px;
+    z-index: 4;
+}

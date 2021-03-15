@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+* {
+  font-family: poppins;
+}
+
+#icsHeader {
+	padding: 0px;
+}
+ul {
+	margin-left: auto;
+	font-size: 20px;
+}
+#myNav {
+	background-color: #5DBD8E;
+}
+thead{
+    background-color: #5DBD8E;
+
+}
+
+table{
+   border: #5DBD8E 2px solid;
+   height: 100%;
+}
+
+
+#buttons{
+    margin: auto;
+    display: block;
+}

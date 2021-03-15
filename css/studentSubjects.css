@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+* {
+  font-family: poppins;
+}
+
+#myNav {
+  background-color: #5DBD8E;
+}
+thead{
+  background-color: #5DBD8E;
+}
+#icsHeader {
+  font-size: 25px;
+  padding: 0px;
+}
+#search {
+ 
+  padding: 0;
+  border: solid 2px;
+  border-radius: 3px;
+}
+
+#tblHeader {
+  background-color: #5DBD8E;
+  color: white;
+}
+
+#tables {
+  border-radius: 10px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.pagination{
+  font-size: 16px;
+}
+
+.page-item.active .page-link{
+  border-color: #5DBD8E;
+  background-color: #5DBD8E;
+  
+}
+a.page-link{
+  color: #5DBD8E;
+}
+a.page-link:hover{
+  color: #5DBD8E;
+}
+#tbody{
+  border: 1px solid;
+}
+
+input[type="checkbox"]{
+ float: right;
+}
+
+

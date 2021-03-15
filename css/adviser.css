@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+* {
+  font-family: poppins;
+}
+body{
+    background-image: url("../images/bg2.png");
+    background-size: cover;
+}
+
+#myNav{
+    background-color: #308F6A;
+}
+
+.btn-success{
+    background-color: #308F6A;
+}
+
+thead{
+  background-color: #5DBD8E;
+}
+#rightbtn{
+  margin-left: auto;
+}
+.pagination{
+  font-size: 16px;
+}
+.page-item.active .page-link{
+  border-color: #5DBD8E;
+  background-color: #5DBD8E;
+}
+a.page-link{
+  color: #5DBD8E;
+}
+a.page-link:hover{
+  color: #5DBD8E;
+}
+
+#add-account{
+    margin-left: auto;
+    display: block;
+    background-color: #5DBD8E;
+    margin-right: 10px;
+}
+#select-course{
+  margin-left: auto;
+  width: 100%;
+  border-color: #c2c4ce;
+  border-radius: 5px;
+}
+
+#content{
+    border: solid 2px #5DBD8E;
+    border-radius: 10px;
+}
+#notifs{
+    height: 300px;
+}
+#myprofile{
+    border-radius: 10px;
+}
+#profilepicture{
+    border: #5DBD8E 3px solid;
+}
+#tableStudents-head{
+    background-color: #5DBD8E;
+    color: white;
+}
+#tableStudents,#tableStudentGrade{
+    border: #25966F solid 5px;
+}

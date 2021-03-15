@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn-success{
+    background-color: #BC2323;
+    border-color: #BC2323;
+}
+#back-btn, #submit-btn{
+    transition: .2s;
+}
+#back-btn:hover, #submit-btn:hover{
+    transform: translateY(-5px);
+}
+.role{
+    border: 2px solid transparent;
+    padding: 0 .30rem;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: .3s;
+    background-color:#818181;
+    font-size: 1.2rem;
+}
+.role:hover{
+    color: white;
+    filter: brightness(80%);
+}
+
+#active{
+    background-color:#BC2323 ;
+}
+.buttons{
+    float: right;
+}
+.bg{
+    overflow: hidden;
+}
+.bg-circle{
+    position: fixed;
+    width: 2000px;
+    height: 2000px;
+    border-radius: 56%;
+    left: 60%;
+    background-color: #d14141;
+    transform: translateY(-70%);
+    z-index: -1;
+}
+
+@media (min-width: 1000px){
+    /* roles */
+    #student-request-form span{
+        float: right;
+    }
+    #staff-request-form span{
+        float: right;
+    }
+}
+@media (max-width: 1000px){
+
+   
+    #left-side.col-6{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .title{
+        margin-bottom: auto;
+        text-align: center;
+        display: block;
+    }
+    #student-request-form span{
+        display: block;
+        margin: 20px 0 0 0;
+    }
+    #staff-request-form span{
+        display: block;
+        margin: 20px 0 0 0;
+    }
+    .buttons{
+        float: right;
+        margin-bottom: 20px;
+    }
+   
+    #right-side{
+        display: none;
+    }
+}

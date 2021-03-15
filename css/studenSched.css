@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+* {
+  font-family: poppins;
+}
+
+.top {
+  background-color: #5DBD8E;
+  color: #ffffff;
+  padding: 0 0 0 20px;
+}
+thead{
+  background-color: #5DBD8E;
+  color: white;
+}
+#btn-dl{
+  background-color: #5DBD8E;
+  color: white;
+}
+.container{
+  border: 4px solid #5DBD8E;
+  border-radius: 10px;
+}
