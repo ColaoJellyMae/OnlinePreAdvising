@@ -4,7 +4,7 @@
     font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-nav,.btn-danger{
+nav,.btn-danger, #tableStudentGrade{
     background-color: #BC2323;
 }
 .btn-danger:hover{
@@ -27,6 +27,53 @@ ul{
     transform: scale(1.05);
 }
 
+
+#select-course, #select-prereq, #select-curriculumID, #select-year, #select-section{
+    margin-left: auto;
+    width: 100%;
+    border-color: #c2c4ce;
+    border-radius: 5px;
+}
+.round{
+    border-radius: 10px;
+}
+
+#icon-btn{
+    z-index: 3;
+    float: left;
+    position: inherit;
+    width: 50px;
+}
+/* table */
+thead{
+    background-color: #BC2323;
+}
+  
+#tables {
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+}
+#searchContainer {
+    padding: 0;
+}
+
+.pagination{
+    font-size: 16px;
+}
+.page-item.active .page-link{
+    border-color: #BC2323;
+    background-color: #BC2323;
+}
+#table_length{
+    display: inline-block;
+}
+  /* table end */
+.shadowed{
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+}
+
 @media (min-width: 1000px){
     ul{
         margin-left: auto;
@@ -40,6 +87,9 @@ ul{
     .nav-label{
         display: none;
     }
+    #mobile-notif{
+        display: none;
+    }
 }
 @media (max-width: 1000px){
    .nav-label{
@@ -47,7 +97,10 @@ ul{
        padding-left: 10px;
        margin-bottom: 10px;
    }
-
+   #desktop-notif{
+       display: none;
+   }
+   
    #left-side{
        display: none;
    }

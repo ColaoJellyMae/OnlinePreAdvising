@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../bootstrap/bootstrap.min.css" />
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- DATATABLE -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.css"/>
+    <!-- local css -->
+    <link rel="stylesheet" href="../../css/style-superadmin.css" />
+    
+    <title>Admins</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+        <div class="container-fluid">
+            <!-- ICS LOGO -->
+            <a class="navbar-brand p-0 m-0" href="superadmin-homepage.html" id="nav-logo">
+                <img class="rounded-circle p-0" src="../../images/wmsu-seal.png" alt="WMSU SEAL" width="32" height="32" />
+                <span id="department">Western Mindanao State University</span>
+            </a>
+
+            <!-- MOBILE TOGGLE -->
+            <button class="navbar-toggler m-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span><i class="fas fa-bars"></i></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <!-- Profile -->
+                    <!-- <li class="nav-item">
+                        <a class="nav-link active py-0" aria-current="page" href="superadmin-myprofile.html"><i id="icons" class="fas fa-user-tie"></i><span class="nav-label"> My Profile</span></a>
+                    </li> -->
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link active py-0" aria-current="page" href="superadmin-homepage.html"><i id="icons" class="fas fa-home"></i><span class="nav-label"> Home</span></a>
+                    </li>
+                    <!-- logout -->
+                    <li class="nav-item">
+                        <a id="icons" class="nav-link active py-0" href="../../signin/universal-signin.html" aria-disabled="true"><i class="fas fa-sign-out-alt"></i><span class="nav-label"> Logout</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END OF NAVBAR -->
+
+    <div class="container" >
+        <p class="text  mt-3 text-danger fw-bold text-center fs-2">Department Admins</p>
+	</div>
+    
+    <!-- TABLE -->
+    <div class="container p-2 container-fluid mb-3" >
+        <div class="container overflow-auto" >
+            <table class="table table-hover table-responsive table-striped table-bordered " id="table1">
+                <thead class="text-white">
+                    <tr>
+                        <th>Admin ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Department</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="window.location='#';" data-bs-toggle="modal" data-bs-target="#popup-manage-curriculum" style=" cursor: pointer; "/>
+                        <th scope="row">admin001</th>
+                        <td>Juan Dela Cruz</td>
+                        <td>Admin@wmsu.edu.ph</td>
+                        <td>09123456789</td>
+                        <td>ICS</td>
+                    </tr>
+                   
+                </tbody>
+                <tfoot >	
+                    <!-- table footer -->
+                </tfoot>
+            </table>
+        </div>
+
+
+        <!-- ADD Department Toggle-->
+        <center>
+            <button type="button" class="btn rounded-pill btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#addDep" id="add-section">
+                Add New Admin
+            </button>
+        </center>
+        
+    </div>
+    <!-- TABLE END -->
+
+    
+    <!-- ADD NEW DEPARTMENT POPUP -->
+    <div class="container container-fluid">
+        <div class="modal fade" id="addDep" tabindex="-1" aria-labelledby="addDepLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold" id="addDepLabel">Add New Admin</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <!-- Inputs -->
+                        <form>
+                            <div class="mb-3">
+								<label for="input-name" class="form-label">Name</label>
+								<input type="text" class="form-control" id="input-name" aria-describedby="input-name-help" required>
+								<!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+							</div>
+
+							<div class="mb-3">
+								<label for="input-id" class="form-label">Admin ID</label>
+								<input type="text" class="form-control" id="input-id" required>
+							</div>
+
+							<div class="mb-3">
+								<label for="input-pass" class="form-label">Password</label>
+								<input type="password" class="form-control" id="input-pass" required>
+							</div>
+							
+							<div class="mb-3">
+								<label for="input-pass2" class="form-label">Confirm Password</label>
+								<input type="password" class="form-control" id="input-pass2" required>
+							</div>
+
+                            <div class="mb-3">
+								<label for="input-contact" class="form-label">Contact</label>
+								<input type="number" class="form-control" id="input-contact" required>
+							</div>
+
+
+							<!-- Deapartment -->		
+							<div class="container p-0 mb-3" id="select-college">
+								<label for="select-college" class="form-label" >Assigned To</label>
+								<select class="custom-select p-2 " id="select-college" required>
+									<option selected>Select College Department...</option>
+
+                                    <!-- INSERT DATABASE HERE BELOW FOR COLLEGES -->
+                                    <option value="1">ICS</option>
+                                    <option value="2">CLA</option>
+                                
+								</select>			
+							</div>		
+
+
+                            <div align="right">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Confirm</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ADD NEW DEPARTMENT END -->
+
+    <!-- COLLEGE MANAGE -->
+    <div class="modal fade" id="popup-manage-curriculum" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="manage-curriculum" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="manage-curriculum">Manage Curriculum</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Inputs -->
+                <form>
+                    <div class="mb-3">
+                        <label for="input-name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="input-name" aria-describedby="input-name-help" required>
+                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="input-id" class="form-label">Admin ID</label>
+                        <input type="text" class="form-control" id="input-id" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="input-pass" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="input-pass" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="input-pass2" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="input-pass2" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="input-contact" class="form-label">Contact</label>
+                        <input type="number" class="form-control" id="input-contact" required>
+                    </div>
+
+
+                    <!-- Deapartment -->		
+                    <div class="container p-0 mb-3" id="select-college">
+                        <label for="select-college" class="form-label" >Assigned To</label>
+                        <select class="custom-select p-2 " id="select-college" required>
+                            <option selected>Select College Department...</option>
+
+                            <!-- INSERT DATABASE HERE BELOW FOR COLLEGES -->
+                            <option value="1">ICS</option>
+                            <option value="2">CLA</option>
+                        
+                        </select>			
+                    </div>		
+
+
+                    <div align="right">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+                        <button type="submit" class="btn btn-success">Update</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MANAGE COLLEGE END -->
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+      integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.js"></script>
+
+    <script>
+		$('#table1').DataTable();
+	</script>
+
+    <script>
+		$('#table2').DataTable();
+	</script>
+
+</body>
+</html>

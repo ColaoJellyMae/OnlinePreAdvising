@@ -10,7 +10,6 @@ nav,.btn-danger{
 .btn-danger:hover{
     background-color: #da1c1c
 }
-
 ul{
     font-size: 1.3rem;
 }
@@ -23,7 +22,6 @@ ul{
 }
 .btn{
     transition: .2s;
-    position: relative;
 }
 .btn:hover{
     transform: scale(1.05);
@@ -38,7 +36,6 @@ ul{
     position: inherit;
     width: 50px;
 }
-
 /* table */
 thead{
     background-color: #BC2323;
@@ -65,10 +62,9 @@ thead{
     display: inline-block;
 }
   /* table end */
-  
 
 
-#select-course, #select-prereq, #select-curriculumID, #select-year, #select-section{
+#select-course, #select-prereq, #select-curriculumID, #select-year, #select-section, #select-college{
     margin-left: auto;
     width: 100%;
     border-color: #c2c4ce;
@@ -87,9 +83,6 @@ thead{
     .nav-label{
         display: none;
     }
-    #mobile-notif{
-        display: none;
-    }
 }
 @media (max-width: 1000px){
    .nav-label{
@@ -104,8 +97,4 @@ thead{
    #right-side{
        width: 100%;
    }
-
-   #desktop-notif{
-    display: none;
-}
 }
