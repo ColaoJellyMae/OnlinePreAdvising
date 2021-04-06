@@ -1,100 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-*{
-
+* {
     font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-nav,.btn-danger{
+nav,
+.btn-danger {
     background-color: #BC2323;
 }
-.btn-danger:hover{
+
+.btn-danger:hover {
     background-color: #da1c1c
 }
-ul{
+
+ul {
     font-size: 1.3rem;
 }
 
-#notif-number{
+#notif-number {
     font-size: .6rem;
 }
-#picture{
+
+#picture {
     width: 500px;
 }
-.btn{
+
+.btn {
     transition: .2s;
 }
-.btn:hover{
+
+.btn:hover {
     transform: scale(1.05);
 }
-.round{
+
+.round {
     border-radius: 10px;
 }
 
-#icon-btn{
+#icon-btn {
     z-index: 3;
     float: left;
     position: inherit;
     width: 50px;
 }
+
+
 /* table */
-thead{
+
+thead {
     background-color: #BC2323;
 }
-  
+
 #tables {
     border-radius: 10px;
     padding: 0;
     margin: 0;
     overflow: auto;
 }
+
 #searchContainer {
     padding: 0;
 }
 
-.pagination{
+.pagination {
     font-size: 16px;
 }
-.page-item.active .page-link{
+
+.page-item.active .page-link {
     border-color: #BC2323;
     background-color: #BC2323;
 }
-#table_length{
+
+#table_length {
     display: inline-block;
 }
-  /* table end */
 
 
-#select-course, #select-prereq, #select-curriculumID, #select-year, #select-section, #select-college{
+/* table end */
+
+#select-course,
+#select-prereq,
+#select-curriculumID,
+#select-year,
+#select-section,
+#select-college,
+#yearlevels {
     margin-left: auto;
     width: 100%;
     border-color: #c2c4ce;
     border-radius: 5px;
-  }
-@media (min-width: 1000px){
-    ul{
+}
+
+@media (min-width: 1000px) {
+    ul {
         margin-left: auto;
     }
-    #icons{
+    #icons {
         transition: .2s;
     }
-    #icons:hover{
+    #icons:hover {
         transform: scale(1.3);
     }
-    .nav-label{
+    .nav-label {
         display: none;
     }
 }
-@media (max-width: 1000px){
-   .nav-label{
-       display: inline-block;
-       padding-left: 10px;
-       margin-bottom: 10px;
-   }
 
-   #left-side{
-       display: none;
-   }
-   #right-side{
-       width: 100%;
-   }
+@media (max-width: 1000px) {
+    .nav-label {
+        display: inline-block;
+        padding-left: 10px;
+        margin-bottom: 10px;
+    }
+    #left-side {
+        display: none;
+    }
+    #right-side {
+        width: 100%;
+    }
 }

@@ -70,9 +70,7 @@ thead{
     display: inline-block;
 }
   /* table end */
-.shadowed{
-    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
-}
+
 
 @media (min-width: 1000px){
     ul{
@@ -87,9 +85,6 @@ thead{
     .nav-label{
         display: none;
     }
-    #mobile-notif{
-        display: none;
-    }
 }
 @media (max-width: 1000px){
    .nav-label{
@@ -97,10 +92,7 @@ thead{
        padding-left: 10px;
        margin-bottom: 10px;
    }
-   #desktop-notif{
-       display: none;
-   }
-   
+
    #left-side{
        display: none;
    }
