@@ -1,6 +1,6 @@
 <?php
-	  include("../includes/config.php"); 
-
+	session_start();
+	include("../includes/config.php"); 
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 		<!-- local css -->
 		<link rel="stylesheet" href="../css/request.css" />
+		
 		<title>Request Account</title>
 	</head>
 
@@ -26,8 +27,8 @@
 				<div class="row">
 					<!--CHILD LEFT -->
 					<div class="col-6" id="left-side">
-						<form id="staff-request-form" class="p-3" action="reg-Adviser.php" method="POST">
-							<!-- HEADING -->
+						<form autocomplete="off" id="staff-request-form" class="p-3" action="reg-Adviser.php" method="POST">
+							<!-- HEADING FOR STAFF  REQUEST FORM -->
 							<div class="title mb-5">
 								<h3 class="mb-4">
 									Staff Request Form
@@ -40,83 +41,138 @@
 							<!-- HEADING END -->
 
 							<!-- INPUT FIELDS -->
-							<div class="row mb-3">
-								<label for="student-id" class="col-sm-4 col-form-label">Staff ID</label>
-								<div class="col-sm-8">
-									<input type="text" name="username" class="form-control" id="staff-id" />
-								</div>
-							</div>
+
+							<!-- FIRSTNAME -->
 							<div class="row mb-3">
 								<label for="first-name" class="col-sm-4 col-form-label">First Name</label>
 								<div class="col-sm-8">
-									<input type="text" name="firstname" class="form-control" id="first-name" />
+									<input type="text" name="firstname" class="form-control" id="first-name" placeholder="Enter Firstname" required/>
 								</div>
 							</div>
+
+							<!-- LASTNAME -->
 							<div class="row mb-3">
 								<label for="last-name" class="col-sm-4 col-form-label">Last Name</label>
 								<div class="col-sm-8">
-									<input type="text" name="lastname" class="form-control" id="last-name" />
+									<input type="text" name="lastname" class="form-control" id="last-name" placeholder="Enter Lastname" required />
 								</div>
 							</div>
+							
+							<!-- CONTACT NO. -->
+							<div class="row mb-3">
+								<label for="last-name" class="col-sm-4 col-form-label">Contact No.</label>
+								<div class="col-sm-8">
+									<input type="text" name="contact" class="form-control" id="last-name" placeholder="Enter Contact No." maxlength="11" autocomplete="off"/>
+								</div>
+							</div>
+							
+							<!-- Email -->
 							<div class="row mb-3">
 								<label for="email" class="col-sm-4 col-form-label">Email</label>
 								<div class="col-sm-8">
-									<input type="email" name="email" placeholder="@wmsu.edu.ph" class="form-control" id="email" />
+									<input type="email" name="email" class="form-control" id="email" placeholder="Enter Email Address" autocomplete="off" required/>
 								</div>
 							</div>
-							<div class="row mb-3">
+
+							<!-- PASSWORD -->
+							<div class="row mb-2">
 								<label for="pass" class="col-sm-4 col-form-label">Password</label>
 								<div class="col-sm-8">
-									<input type="password" name="password" placeholder="" class="form-control" id="pass" />
+									<input type="password" name="password" class="form-control" id="Password" placeholder="Enter Password" required />
 								</div>
+								<div class="text-center">
+									<input type="checkbox" onclick="myFunction()"> Show Password
+								</div>
+								<div id="emailHelp" class="form-text text-end">Note: Password must be atleast 8 or more characters!</div>
 							</div>
+		
+								
+							<!-- DEPARTMENT -->
 							<div class="row mb-3">
 								<label for="department" class="col-sm-4 col-form-label">Department</label>
 								<div class="col-sm-8">
-									<input class="form-control" name="department" list="departments" id="department" />
+									<input class="form-control" name="department" list="departments" id="department" placeholder="Select Department"autocomplete="off" required/>
 									<datalist id="departments">
-										<option value="College of Agriculture"></option>
-										<option value="College of Achitecture"></option>
-										<option value="College of Asian and Islamic Studies"></option>
-										<option value="College of Criminal Justice Education"></option>
-										<option value="College of Engineering"></option>
-										<option value="College of Forestry and Environmental Studies"></option>
-										<option value="College of Home Economics"></option>
-										<option value="College of Law"></option>
-										<option value="College of Liberal Arts"></option>
-										<option value="College of Nursing"></option>
-										<option value="College of Public Administration and Development Studies"></option>
-										<option value="College of Sports Science and Physical Education"></option>
-										<option value="College of Science and Mathematics"></option>
-										<option value="College of Social Work and Community Development"></option>
-										<option value="College of Teacher Education"></option>
-										<option value="Institute of Computer Studies"></option>
+										<?php
+											$sql2 = mysqli_query($connection, "SELECT * From tblcollege");  
+											// Use select query 
+				
+											while($fa = mysqli_fetch_array($sql2))
+											{
+												echo "<option value='".$fa['college']."'>" . $fa['college'] ."</option>";  
+													// displaying data in option menu
+												
+											}	
+										?>  
+									</datalist>
+
+								</div>
+							</div>	
+							
+							<!--COURSE AND YRAR LEVEL-->
+							<div class="row mb-3">
+								<label for="admin-email" class="col-sm-4 col-form-label">Course & Year</label>
+								<div class="col-sm-4">
+									<input class="form-control" name="coursecode" id="coursecode" placeholder="Select Course" list="courses" autocomplete="off" required/>
+									<datalist id="courses">
+										<?php
+											$sql3 = mysqli_query($connection, "SELECT * From tblcourse");  
+											// Use select query 
+				
+											while($fa = mysqli_fetch_array($sql3))
+											{
+												echo "<option value='".$fa['coursecode']."'></option>";  
+													// displaying data in option menu
+												
+											}	
+										?>  
 									</datalist>
 								</div>
-							</div>
-							<div class="row mb-5">
-								<label for="course" class="col-sm-4 col-form-label">Assigned to</label>
+								<!--YEAR LEVEL-->
 								<div class="col-sm-4">
-									<input type="text" class="form-control" name="course" id="course" placeholder="Course" />
-								
-								</div>
-								<div class="col-sm-4">
-									<input class="form-control" name="year" list="year-levels" id="year" placeholder="Year Level" />
+									<input class="form-control" name="yearlevel" id="year" placeholder="Select Year Level"autocomplete="off" list="year-levels" required />
 									<datalist id="year-levels">
-										<option value="1"></option>
-										<option value="2"></option>
-										<option value="3"></option>
-										<option value="4"></option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
 									</datalist>
 								</div>
 							</div>
-							<input type="hidden" name="adviser" value="adviser">
+
+							<!--STATUS-->
+								<input type="hidden" class="form-control" name="status" id="status" value="Adviser" readonly/>	
+							<!--ADMIN EMAIL-->
+							<div class="row mb-3">
+							<label for="admin_email" class="col-sm-4 col-form-label">Admin Email</label>
+								<div class="col-sm-8">
+									<input class="form-control" name="admin_email" list="admin_emails" id="admin_email" placeholder="Select Admin Email to be sent"autocomplete="off" required/>
+									<datalist id="admin_emails">
+										<?php
+											$ut="Admin";
+											$getadmin_email = mysqli_query($connection, "SELECT * From tbluser WHERE usertype='$ut'");  
+											// Use select query 
+				
+											while($fa_admin_e = mysqli_fetch_array($getadmin_email))
+											{
+												echo "<option value='".$fa_admin_e['email']."'></option>";  
+													// displaying data in option menu
+												
+											}	
+										?>  
+									</datalist>
+
+								</div>
+							</div>
+								
+
 							<!-- INPUT FIELDS END -->
 
 							<!-- ACTION BUTTONS -->
 							<div class="buttons">
 								<a href="universal-signin.php" class="btn btn-secondary" id="back-btn">Back</a>
-								<button type="submit" name="add" class="btn btn-danger" id="submit-btn">Submit</button>
+								<button type="submit" name="submit-request" class="btn btn-danger" id="submit-btn">Submit</button>
 							</div>
 							<!-- ACTION BUTTONS END -->
 						</form>
@@ -143,5 +199,53 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 		<!-- OFFLINE BOOTSTRAP JS -->
 		<script src="../bootstrap/bootstrap.min.js"></script>
+		
+		 <!-- ALERT MESSAGE-->
+ 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+		<!--password length error Message-->
+		<?php
+			if(isset($_SESSION['request_alert_message']) && $_SESSION['request_alert_message'] == "pass_len_error" )
+			{
+				?>
+					<script>
+						swal({
+							title: "Password must be 8 or more characters!",
+							icon: "warning",
+						});
+					</script>
+				<?php
+				unset($_SESSION['request_alert_message'] );
+			}
+		?>
+
+		<!--Submitted Failed Message-->
+		<?php
+				if(isset($_SESSION['request_alert_message']) && $_SESSION['request_alert_message'] == "req_sub_failed" )
+				{
+					?>
+						<script>
+							swal({
+								title: "Something went wrong Please check!!",
+								icon: "error",
+							});
+						</script>
+					<?php
+					unset($_SESSION['request_alert_message'] );
+				}
+		?>
+
+		<!-- Show/Hide Password -->
+		<script>
+			function myFunction() {
+				var x = document.getElementById("Password");
+				if (x.type === "password") {
+					x.type = "text";
+				} else {
+					x.type = "password";
+				}
+			}
+    	</script>
+		 
 	</body>
 </html>

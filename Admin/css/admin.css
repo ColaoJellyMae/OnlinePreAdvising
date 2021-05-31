@@ -1,0 +1,69 @@
+.sidebar {
+    background-color: #BC2323;
+}
+
+.hide {
+    display: none;
+}
+
+#select-college {
+    width: 95%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.curriculumcode {
+    width: 18%;
+    border-color: white;
+    border-radius: 5px;
+    outline: gray;
+    border-radius: 5px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: solid;
+    border-style: groove;
+}
+
+#picture {
+    width: 500px;
+}
+
+#ddl {
+    color: grey;
+    outline: none;
+    background-color: lavender;
+    border-radius: 5px;
+}
+
+.btn-close {
+    background-color: inherit;
+    outline: none;
+    border-style: groove;
+    outline-color: none;
+    border: none;
+}
+
+#dataTable {
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.circle-icon {
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.course,
+.cmo,
+.br,
+.esy,
+.od {
+    border: none;
+}
+
+#add_subject_btn {
+    position: fixed;
+    left: 50%;
+    bottom: 5%;
+}

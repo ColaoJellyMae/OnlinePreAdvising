@@ -1,0 +1,14 @@
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:wmsu-onlinepreadvising.com
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} (www\.)?wmsu-onlinepreadvising.com
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:wmsu-onlinepreadvising.com
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:wmsu-onlinepreadvising.com
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} (www\.)?wmsu-onlinepreadvising.com
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW SSL_REDIRECT:wmsu-onlinepreadvising.com
