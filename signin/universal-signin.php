@@ -25,27 +25,20 @@
         <div class="forms-container">
             <div class="signin-signup">
                 <!-- INPUT -->
-                <form action="../signin/loginData.php" method="POST">
+                <form autocomplete="off" action="../signin/loginData.php" method="POST">
                     <div class="sign-in-form" id="form">
                         <h2 class="title">Sign in</h2>
                         <div class="input-field">
                             <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Username" id="user-id" name="username" required/>
+                            <input type="text" placeholder="Email" id="email" name="email" autocomplete="false" required/>
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Password" id="password" name="password" required />  
+                            <input type="password" placeholder="Password" id="Password" name="password" autocomplete="off" required />  
                         </div>
-                         <!--FOR THE USER TO KNOW IF THE USERNAME AND PASSWORD INPUTTED HAS AN EXISTING ACCOUNT-->
-                        <?php
-                            if(isset($_SESSION['error_login'] ) && $_SESSION['error_login']  != '' )
-                            {
-                                echo '<h5 class="text-red">'.$_SESSION['error_login'] .'</h5>';
-                                unset($_SESSION['error_login'] );
-                            }
-                         ?>
-                        <!--FOR THE USER TO KNOW THE USERNAME AND PASSWORD INPUTTED HAS AN EXISTING ACCOUNT END-->
-
+                        <div>
+                            <input type="checkbox" onclick="myFunction()"> Show Password
+                        </div>
                         <button type="submit" name="login" id="login" class="btn solid">Login</button>
 
                         <p class="request-text">Don't have an account?<br />Request a student or staff account</p>
@@ -74,10 +67,37 @@
         </div>
     </div>
 
-
+    <!--LOGIN MESSAGE-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <?php
+        if(isset($_SESSION['login_message']) && $_SESSION['login_message']  != '' &&  $_SESSION['login_message']=="error" )
+        {
+            ?>
+                <script>
+                    swal({
+                        title: "Incorrect Email or Password!",
+                        text: "Please Check!",
+                        icon: "error",
+                    });
+                </script>
+            <?php
+            unset($_SESSION['login_message'] );
+        }
+    ?>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("Password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 </body>
 
 </html>

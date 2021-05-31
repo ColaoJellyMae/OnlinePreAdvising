@@ -1,90 +1,74 @@
 <?php
-	include "../includes/config.php";
+	session_start();
+	include("../includes/config.php");
 
-	$username = "";
-	$firstname = "";
-	$lastname = "";
-	$email = "";
-	$password = "";
-	$department = "";
-	$course = "";
-	$year = "";
-	$status = "";
-	$type = "Adviser";
-
-	if($connection===false)
+	if (isset($_POST['submit-request']))
 	{
-		die("ERROR: Could not connect." .mysqli_connect_error());
-	}
-
-	else
-	{
-	 	if (isset($_POST['add']))
-		{
-			$username = mysqli_real_escape_string($connection,$_POST['username']);
+			$firstname = mysqli_real_escape_string($connection,$_POST['firstname']);
+			$lastname = mysqli_real_escape_string($connection,$_POST['lastname']);
+			$contact = mysqli_real_escape_string($connection,$_POST['contact']);
+			$email = mysqli_real_escape_string($connection,$_POST['email']);
 			$password = mysqli_real_escape_string($connection,$_POST['password']);
+			$usertype = mysqli_real_escape_string($connection,$_POST['status']);
 			$department = mysqli_real_escape_string($connection,$_POST['department']);
-			$adviser = "Adviser";
+			$coursecode = mysqli_real_escape_string($connection,$_POST['coursecode']);
+			$yearlevel = mysqli_real_escape_string($connection,$_POST['yearlevel']);
+			$admin_email = mysqli_real_escape_string($connection,$_POST['admin_email']);
 
-				$sql="INSERT INTO tbluser (username,password,usertype,college)VALUES('$username','$password','$adviser','$department')";
+
+			$name = $firstname." ".$lastname;
+			$extension ="@wmsu.edu.ph";
+			//email with extension 
+			$adviser_email = $email.$extension;
+
+			//get college id
+			$check_college = mysqli_query($connection,"SELECT * FROM tblcollege WHERE college='$department'");
+			if(mysqli_num_rows($check_college) > 0){
+				$fa_col = mysqli_fetch_array($check_college);
+				$collegeid = $fa_col['id'];
+			}
+
+			//get course id
+			$check_course = mysqli_query($connection,"SELECT * FROM tblcourse WHERE coursecode='$coursecode'");
+			if(mysqli_num_rows($check_course) > 0){
+				$fa_c = mysqli_fetch_array($check_course);
+				$courseid = $fa_c['id'];
+			}
+
+			//password length
+			$pass_len = strlen($password);
+			if($pass_len < 8){
+				$_SESSION['request_alert_message'] = "pass_len_error";
+				header("location: staff-request.php");
+			 }
+			 else{	
+				//get admin id
+				$getadmin_id = "SELECT * FROM tbluser WHERE email='$admin_email'";
+
+				$myData = mysqli_query($connection,$getadmin_id);
+				while($get = mysqli_fetch_array($myData)) { 
+					$adminid = $get['id'];
+				}
+
+				$check_email = mysqli_query($connection,"SELECT * from tbluser WHERE email='$email'");
+
+				if(mysqli_num_rows($check_email) > 0){
+					$_SESSION['adviser_alert_message'] = "emailexisted";
+					header("location: staff-request.php");
+				}
+
+				$sectioncode = $coursecode.$yearlevel;
 		
-                	if(mysqli_query($connection,$sql))
-                	{
-                    	echo '<script>alert("Data is successfully added!")</script>';
-                	}
-                	else
-                	{
-                    	echo "ERROR:Could not be able to execute $sql. " .mysqli_error($connection);
-                }
-        }
-        if (isset($_POST['add']))
-		{
-			$username = mysqli_real_escape_string($connection,$_POST['username']);
-			$firstname = mysqli_real_escape_string($connection,$_POST['firstname']);
-			$lastname = mysqli_real_escape_string($connection,$_POST['lastname']);
-			$email = mysqli_real_escape_string($connection,$_POST['email']);
-			$department = mysqli_real_escape_string($connection,$_POST['department']);
-			$course = mysqli_real_escape_string($connection,$_POST['course']);
-			$year = mysqli_real_escape_string($connection,$_POST['year']);
-			$status = "Adviser";
-
-
-			$sql_a="INSERT INTO tbluser_details (username,firstname,lastname,email,college,course,year,status)VALUES('$username','$firstname','$lastname','$email','$department','$course','$year','$status')";
-		
-                if(mysqli_query($connection,$sql_a))
-                {
-                    echo '<script>alert("Data is successfully added!")</script>';
-                }
-                else
-                {
-                    echo "ERROR:Could not be able to execute $sql. " .mysqli_error($connection);
-                }
-        }
-        if (isset($_POST['add']))
-		{
-			$username = mysqli_real_escape_string($connection,$_POST['username']);
-			$firstname = mysqli_real_escape_string($connection,$_POST['firstname']);
-			$lastname = mysqli_real_escape_string($connection,$_POST['lastname']);
-			$email = mysqli_real_escape_string($connection,$_POST['email']);
-			$department = mysqli_real_escape_string($connection,$_POST['department']);
-			$course = mysqli_real_escape_string($connection,$_POST['course']);
-			$year = mysqli_real_escape_string($connection,$_POST['year']);
-
-
-			$sql_s="INSERT INTO tblnotification (accountID,firstname,lastname,email,college,course,year)VALUES('$username','$firstname','$lastname','$email','$department','$course','$year')";
-		
-                if(mysqli_query($connection,$sql_s))
-                {
-                    echo '<script>alert("Data is successfully added!")</script>';
-                }
-                else
-                {
-                    echo "ERROR:Could not be able to execute $sql. " .mysqli_error($connection);
-                }
-        }
-		
+				$sql_a ="INSERT INTO `tblrequest_account`(`firstname`, `lastname`,`contact` ,`email`, `password`, `req_usertype`,`college_id_fk`,`course_id_fk`,`yearlevel`,`user_id_fk`) VALUES ('$firstname', '$lastname','$contact','$adviser_email','$password','$usertype','$collegeid','$courseid','$yearlevel','$adminid')";
+			
+				if(mysqli_query($connection,$sql_a)){
+					$_SESSION['request_alert_message'] = "req_submitted";
+					header("location: staff-request.php");
+				}
+				else{
+					$_SESSION['request_alert_message'] = "req_sub_failed";
+					echo "ERROR:Could not be able to execute $sql_a. " .mysqli_error($connection);    
+				}  
+			}
 	}
-	mysqli_close($connection);
-	header("location:staff-request.php"); 
-
 ?>

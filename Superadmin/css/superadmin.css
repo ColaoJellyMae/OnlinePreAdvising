@@ -1,0 +1,17 @@
+.sidebar {
+    background-color: #BC2323;
+}
+
+.hide {
+    display: none;
+}
+
+#select-college {
+    width: 95%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+#picture {
+    width: 500px;
+}

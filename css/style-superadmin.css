@@ -57,6 +57,15 @@ thead {
     overflow: auto;
 }
 
+td:hover img {
+    width: 15rem;
+    height: 15rem;
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 41%;
+    top: 30%;
+}
+
 #searchContainer {
     padding: 0;
 }
@@ -74,9 +83,15 @@ thead {
     display: inline-block;
 }
 
+.hide {
+    display: none;
+}
+
 
 /* table end */
 
+#firstname,
+#lastname,
 #select-course,
 #select-prereq,
 #select-curriculumID,
